@@ -1,5 +1,36 @@
 var bot = require('./bot.config')
-var User = require('./model');
+const mongoose = require('mongoose');
+const UserSchema = new mongoose.Schema({
+  group_id: {
+    type: String,
+    required: true,
+  },
+  member: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: String,
+    default: '',
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+  finished:{
+    type: Boolean,
+    default: false,
+  }
+});
+ // collection name 'report' in mlab
+const User = mongoose.model('report', UserSchema);
+ mongoose
+  .connect(
+    'mongodb+srv://watame:kXjE4tJQd7PU4ibq@cluster0.3ozhv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    { useNewUrlParser: true }
+  )
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
  
 var intro_txt = 
   '在下乃忍者哈特利是也\n來幫各位彙整回報內容\n'+
