@@ -6,7 +6,7 @@ const linebotParser = require('./bot.event')
 // Connect to MongoDB
 mongoose
   .connect(
-    'mongodb+srv://watame:cC121578828@cluster0.3ozhv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    'mongodb+srv://watame:kXjE4tJQd7PU4ibq@cluster0.3ozhv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
     { useNewUrlParser: true }
   )
   .then(() => console.log('MongoDB Connected'))
